@@ -33,6 +33,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
             press: () {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
+                Navigator.pop(context);
               }
             },
           ),
@@ -64,12 +65,14 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
           setState(() {
             errors.add(kEmailNullError);
           });
+          return '';
         } else if (value.isNotEmpty &&
             !emailValidatorRegExp.hasMatch(value) &&
             !errors.contains(kInvalidEmailError)) {
           setState(() {
             errors.add(kInvalidEmailError);
           });
+          return '';
         }
         return null;
       },
