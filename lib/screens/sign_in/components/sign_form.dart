@@ -21,6 +21,23 @@ class _SignFormState extends State<SignForm> {
   bool remember = false;
 
   final List<String> errors = [];
+
+  void addError({String error}) {
+    if (!errors.contains(error)) {
+      setState(() {
+        errors.add(error);
+      });
+    }
+  }
+
+  void removeError({String error}) {
+    if (errors.contains(error)) {
+      setState(() {
+        errors.remove(error);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -79,28 +96,20 @@ class _SignFormState extends State<SignForm> {
       },
       onChanged: (value) {
         if (value.isNotEmpty && errors.contains(kEmailNullError)) {
-          setState(() {
-            errors.remove(kEmailNullError);
-          });
+          removeError(error: kEmailNullError);
         } else if (emailValidatorRegExp.hasMatch(value) &&
             errors.contains(kInvalidEmailError)) {
-          setState(() {
-            errors.remove(kInvalidEmailError);
-          });
+          removeError(error: kInvalidEmailError);
         }
       },
       validator: (value) {
         if (value.isEmpty && !errors.contains(kEmailNullError)) {
-          setState(() {
-            errors.add(kEmailNullError);
-          });
+          addError(error: kEmailNullError);
           return '';
         } else if (value.isNotEmpty &&
             !emailValidatorRegExp.hasMatch(value) &&
             !errors.contains(kInvalidEmailError)) {
-          setState(() {
-            errors.add(kInvalidEmailError);
-          });
+          addError(error: kInvalidEmailError);
           return '';
         }
         return null;
@@ -124,28 +133,20 @@ class _SignFormState extends State<SignForm> {
       },
       onChanged: (value) {
         if (value.isNotEmpty && errors.contains(kPassNullError)) {
-          setState(() {
-            errors.remove(kPassNullError);
-          });
+          removeError(error: kPassNullError);
         } else if (value.length >= 8 && errors.contains(kShortPassError)) {
-          setState(() {
-            errors.remove(kShortPassError);
-          });
+          removeError(error: kShortPassError);
         }
         return null;
       },
       validator: (value) {
         if (value.isEmpty && !errors.contains(kPassNullError)) {
-          setState(() {
-            errors.add(kPassNullError);
-          });
+          addError(error: kPassNullError);
           return '';
         } else if (value.isNotEmpty &&
             value.length < 8 &&
             !errors.contains(kShortPassError)) {
-          setState(() {
-            errors.add(kShortPassError);
-          });
+          addError(error: kShortPassError);
           return '';
         }
         return null;

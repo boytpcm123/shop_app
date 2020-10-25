@@ -51,31 +51,8 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(height: getProportionateScreenHeight(30)),
           buildConfirmPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
-          Row(
-            children: [
-              Checkbox(
-                value: remember,
-                activeColor: kPrimaryColor,
-                onChanged: (value) {
-                  setState(() {
-                    remember = value;
-                  });
-                },
-              ),
-              const Text("Remember me"),
-              const Spacer(),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(
-                    context, ForgotPasswordScreen.routeName),
-                child: const Text(
-                  "Forgot Password",
-                  style: TextStyle(decoration: TextDecoration.underline),
-                ),
-              )
-            ],
-          ),
           FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(20)),
+          SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
             text: "Continue",
             press: () {
@@ -140,6 +117,7 @@ class _SignUpFormState extends State<SignUpForm> {
         } else if (value.length >= 8 && errors.contains(kShortPassError)) {
           removeError(error: kShortPassError);
         }
+        password = value;
         return null;
       },
       validator: (value) {
@@ -172,17 +150,16 @@ class _SignUpFormState extends State<SignUpForm> {
         confirmPassword = newValue;
       },
       onChanged: (value) {
-        if (value.isNotEmpty && errors.contains(kPassNullError)) {
-          removeError(error: kPassNullError);
-        } else if (value.length >= 8 && errors.contains(kShortPassError)) {
-          removeError(error: kShortPassError);
+        if (password == value) {
+          removeError(error: kMatchPassError);
         }
+        confirmPassword = value;
         return null;
       },
       validator: (value) {
         if (value.isEmpty) {
           return '';
-        } else if (password == confirmPassword) {
+        } else if (password != confirmPassword) {
           addError(error: kMatchPassError);
           return '';
         }
@@ -190,7 +167,7 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       decoration: const InputDecoration(
         labelText: "Confirm Password",
-        hintText: "Enter your password",
+        hintText: "Re-enter your password",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSuffixIcon(
           svgIcon: "assets/icons/Lock.svg",
