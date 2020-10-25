@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        Spacer(),
+        const Spacer(),
         SizedBox(
           width: SizeConfig.screenWidth * 0.6,
           child: DefaultButton(
@@ -31,7 +31,7 @@ class Body extends StatelessWidget {
             press: () {},
           ),
         ),
-        Spacer(),
+        const Spacer(),
       ],
     );
   }
