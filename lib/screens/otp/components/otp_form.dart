@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/constants.dart';
+import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import 'package:shop_app/size_config.dart';
 
 class OtpForm extends StatefulWidget {
@@ -39,74 +41,87 @@ class _OtpFormState extends State<OtpForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
-          SizedBox(
-            width: getProportionateScreenWidth(60),
-            child: TextFormField(
-              autofocus: true,
-              keyboardType: TextInputType.number,
-              obscureText: true,
-              style: const TextStyle(fontSize: 24),
-              textAlign: TextAlign.center,
-              decoration: otpInputDecoration.copyWith(
-                focusedBorder: outlineInputBorder(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                width: getProportionateScreenWidth(60),
+                child: TextFormField(
+                  autofocus: true,
+                  keyboardType: TextInputType.number,
+                  obscureText: true,
+                  style: const TextStyle(fontSize: 24),
+                  textAlign: TextAlign.center,
+                  decoration: otpInputDecoration.copyWith(
+                    focusedBorder: outlineInputBorder(),
+                  ),
+                  onChanged: (value) {
+                    //Also you need to store your value
+                    nextField(value: value, focusNode: pin2FocusNode);
+                  },
+                ),
               ),
-              onChanged: (value) {
-                //Also you need to store your value
-                nextField(value: value, focusNode: pin2FocusNode);
-              },
-            ),
+              SizedBox(
+                width: getProportionateScreenWidth(60),
+                child: TextFormField(
+                  focusNode: pin2FocusNode,
+                  keyboardType: TextInputType.number,
+                  obscureText: true,
+                  style: const TextStyle(fontSize: 24),
+                  textAlign: TextAlign.center,
+                  decoration: otpInputDecoration.copyWith(
+                    focusedBorder: outlineInputBorder(),
+                  ),
+                  onChanged: (value) {
+                    nextField(value: value, focusNode: pin3FocusNode);
+                  },
+                ),
+              ),
+              SizedBox(
+                width: getProportionateScreenWidth(60),
+                child: TextFormField(
+                  focusNode: pin3FocusNode,
+                  keyboardType: TextInputType.number,
+                  obscureText: true,
+                  style: const TextStyle(fontSize: 24),
+                  textAlign: TextAlign.center,
+                  decoration: otpInputDecoration.copyWith(
+                    focusedBorder: outlineInputBorder(),
+                  ),
+                  onChanged: (value) {
+                    nextField(value: value, focusNode: pin4FocusNode);
+                  },
+                ),
+              ),
+              SizedBox(
+                width: getProportionateScreenWidth(60),
+                child: TextFormField(
+                  focusNode: pin4FocusNode,
+                  keyboardType: TextInputType.number,
+                  obscureText: true,
+                  style: const TextStyle(fontSize: 24),
+                  textAlign: TextAlign.center,
+                  decoration: otpInputDecoration.copyWith(
+                    focusedBorder: outlineInputBorder(),
+                  ),
+                  onChanged: (value) {
+                    pin4FocusNode.unfocus();
+                  },
+                ),
+              ),
+            ],
           ),
           SizedBox(
-            width: getProportionateScreenWidth(60),
-            child: TextFormField(
-              focusNode: pin2FocusNode,
-              keyboardType: TextInputType.number,
-              obscureText: true,
-              style: const TextStyle(fontSize: 24),
-              textAlign: TextAlign.center,
-              decoration: otpInputDecoration.copyWith(
-                focusedBorder: outlineInputBorder(),
-              ),
-              onChanged: (value) {
-                nextField(value: value, focusNode: pin3FocusNode);
-              },
-            ),
+            height: SizeConfig.screenHeight * 0.15,
           ),
-          SizedBox(
-            width: getProportionateScreenWidth(60),
-            child: TextFormField(
-              focusNode: pin3FocusNode,
-              keyboardType: TextInputType.number,
-              obscureText: true,
-              style: const TextStyle(fontSize: 24),
-              textAlign: TextAlign.center,
-              decoration: otpInputDecoration.copyWith(
-                focusedBorder: outlineInputBorder(),
-              ),
-              onChanged: (value) {
-                nextField(value: value, focusNode: pin4FocusNode);
-              },
-            ),
-          ),
-          SizedBox(
-            width: getProportionateScreenWidth(60),
-            child: TextFormField(
-              focusNode: pin4FocusNode,
-              keyboardType: TextInputType.number,
-              obscureText: true,
-              style: const TextStyle(fontSize: 24),
-              textAlign: TextAlign.center,
-              decoration: otpInputDecoration.copyWith(
-                focusedBorder: outlineInputBorder(),
-              ),
-              onChanged: (value) {
-                pin4FocusNode.unfocus();
-              },
-            ),
-          ),
+          DefaultButton(
+            text: "Continue",
+            press: () {
+              Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+            },
+          )
         ],
       ),
     );

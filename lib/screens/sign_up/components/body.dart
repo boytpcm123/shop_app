@@ -50,9 +50,7 @@ class Body extends StatelessWidget {
                 ),
                 SizedBox(height: getProportionateScreenHeight(20)), //8%
                 const Text(
-                  """
-                  By continuing your confirm that you agree \nwith our Term and Condition
-                  """,
+                  """By continuing your confirm that you agree \nwith our Term and Condition""",
                   textAlign: TextAlign.center,
                 ),
               ],

@@ -18,10 +18,17 @@ class Body extends StatelessWidget {
             width: double.infinity,
             child: Column(
               children: [
+                SizedBox(height: SizeConfig.screenHeight * 0.05), // 5%
                 Text("OTP Verification", style: headingStyle),
                 const Text("We sent your code to +1 898 860 ***"),
                 buildTimer(),
+                SizedBox(height: SizeConfig.screenHeight * 0.15), // 15%
                 const OtpForm(),
+                SizedBox(height: SizeConfig.screenHeight * 0.1), // 10%
+                const Text(
+                  "Resend OTP Code",
+                  style: TextStyle(decoration: TextDecoration.underline),
+                )
               ],
             ),
           ),
