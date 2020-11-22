@@ -4,13 +4,20 @@ import 'package:shop_app/models/Product.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
-class ProductImages extends StatelessWidget {
+class ProductImages extends StatefulWidget {
   const ProductImages({
     @required this.product,
     Key key,
   }) : super(key: key);
 
   final Product product;
+
+  @override
+  _ProductImagesState createState() => _ProductImagesState();
+}
+
+class _ProductImagesState extends State<ProductImages> {
+  int selectedImage = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -21,26 +28,44 @@ class ProductImages extends StatelessWidget {
           height: getProportionateScreenHeight(238),
           child: AspectRatio(
             aspectRatio: 1,
-            child: Image.asset(product.images[0]),
+            child: Image.asset(widget.product.images[selectedImage]),
           ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              padding: EdgeInsets.all(getProportionateScreenHeight(8)),
-              height: getProportionateScreenWidth(48),
-              width: getProportionateScreenWidth(48),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: kPrimaryColor),
-              ),
-              child: Image.asset(product.images[0]),
+            ...List.generate(
+              widget.product.images.length,
+              buildSmallPreview,
             )
           ],
         )
       ],
+    );
+  }
+
+  GestureDetector buildSmallPreview(int index) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedImage = index;
+        });
+      },
+      child: Container(
+        margin:
+            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(7.5)),
+        padding: EdgeInsets.all(getProportionateScreenHeight(8)),
+        height: getProportionateScreenWidth(48),
+        width: getProportionateScreenWidth(48),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+              color:
+                  selectedImage == index ? kPrimaryColor : Colors.transparent),
+        ),
+        child: Image.asset(widget.product.images[index]),
+      ),
     );
   }
 }
