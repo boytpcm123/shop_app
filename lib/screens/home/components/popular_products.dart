@@ -27,8 +27,12 @@ class PopularProducts extends StatelessWidget {
                 (index) => ProductCard(
                   product: demoProducts[index],
                   press: () => Navigator.pushNamed(
-                      context, DetailsScreen.routeName,
-                      arguments: demoProducts[index]),
+                    context,
+                    DetailsScreen.routeName,
+                    arguments: ProductDetailsArguments(
+                      product: demoProducts[index],
+                    ),
+                  ),
                 ),
               ),
               SizedBox(
