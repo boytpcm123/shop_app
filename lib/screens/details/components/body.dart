@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/models/Product.dart';
-import 'package:shop_app/size_config.dart';
 
+import 'color_dots.dart';
 import 'product_description.dart';
 import 'product_images.dart';
 import 'top_rounded_container.dart';
@@ -26,22 +26,7 @@ class Body extends StatelessWidget {
               ),
               TopRoundedContainer(
                 color: const Color(0xFFF6F7F9),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: getRatioScreenWidth(20),
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: getRatioScreenWidth(40),
-                        height: getRatioScreenWidth(40),
-                        decoration: BoxDecoration(
-                          color: product.colors[0],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                child: ColorDots(product: product),
               ),
             ],
           ),
