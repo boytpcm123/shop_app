@@ -19,7 +19,7 @@ class RoundedIconBtn extends StatelessWidget {
       height: getRatioScreenWidth(40),
       width: getRatioScreenWidth(40),
       child: FlatButton(
-        padding: const EdgeInsets.only(left: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
         color: Colors.white,
         onPressed: press,

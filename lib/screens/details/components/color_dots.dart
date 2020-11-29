@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/components/rounded_icon_btn.dart';
 import 'package:shop_app/models/Product.dart';
 
 import '../../../size_config.dart';
@@ -18,6 +19,7 @@ class ColorDots extends StatefulWidget {
 
 class _ColorDotsState extends State<ColorDots> {
   int selectedColor = 0;
+  int numberProduct = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,37 @@ class _ColorDotsState extends State<ColorDots> {
                 });
               },
             ),
+          ),
+          const Spacer(),
+          RoundedIconBtn(
+            iconData: Icons.remove,
+            press: () {
+              if (numberProduct > 0) {
+                setState(() {
+                  numberProduct--;
+                });
+              }
+            },
+          ),
+          SizedBox(
+            width: getRatioScreenWidth(15),
+          ),
+          Text(
+            "$numberProduct",
+            style: const TextStyle(
+              fontSize: 20,
+            ),
+          ),
+          SizedBox(
+            width: getRatioScreenWidth(15),
+          ),
+          RoundedIconBtn(
+            iconData: Icons.add,
+            press: () {
+              setState(() {
+                numberProduct++;
+              });
+            },
           )
         ],
       ),
