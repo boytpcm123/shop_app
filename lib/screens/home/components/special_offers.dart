@@ -13,7 +13,7 @@ class SpecialOffers extends StatelessWidget {
     return Column(
       children: [
         SectionTitle(text: "Special for you", press: () {}),
-        SizedBox(height: getProportionateScreenHeight(20)),
+        SizedBox(height: getRatioScreenHeight(20)),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -31,7 +31,7 @@ class SpecialOffers extends StatelessWidget {
                 press: () {},
               ),
               SizedBox(
-                width: getProportionateScreenWidth(20),
+                width: getRatioScreenWidth(20),
               )
             ],
           ),
@@ -57,12 +57,12 @@ class SpecialOfferCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
+      padding: EdgeInsets.only(left: getRatioScreenWidth(20)),
       child: GestureDetector(
         onTap: press,
         child: SizedBox(
-          width: getProportionateScreenWidth(242),
-          height: getProportionateScreenHeight(100),
+          width: getRatioScreenWidth(242),
+          height: getRatioScreenHeight(100),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Stack(
@@ -85,8 +85,8 @@ class SpecialOfferCard extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(15),
-                    vertical: getProportionateScreenWidth(10),
+                    horizontal: getRatioScreenWidth(15),
+                    vertical: getRatioScreenWidth(10),
                   ),
                   child: Text.rich(TextSpan(
                     style: const TextStyle(
@@ -96,7 +96,7 @@ class SpecialOfferCard extends StatelessWidget {
                       TextSpan(
                         text: "$category\n",
                         style: TextStyle(
-                          fontSize: getProportionateScreenWidth(18),
+                          fontSize: getRatioScreenWidth(18),
                           fontWeight: FontWeight.bold,
                         ),
                       ),

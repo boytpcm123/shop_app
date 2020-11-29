@@ -47,7 +47,7 @@ class _OtpFormState extends State<OtpForm> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                width: getProportionateScreenWidth(60),
+                width: getRatioScreenWidth(60),
                 child: TextFormField(
                   autofocus: true,
                   keyboardType: TextInputType.number,
@@ -64,7 +64,7 @@ class _OtpFormState extends State<OtpForm> {
                 ),
               ),
               SizedBox(
-                width: getProportionateScreenWidth(60),
+                width: getRatioScreenWidth(60),
                 child: TextFormField(
                   focusNode: pin2FocusNode,
                   keyboardType: TextInputType.number,
@@ -80,7 +80,7 @@ class _OtpFormState extends State<OtpForm> {
                 ),
               ),
               SizedBox(
-                width: getProportionateScreenWidth(60),
+                width: getRatioScreenWidth(60),
                 child: TextFormField(
                   focusNode: pin3FocusNode,
                   keyboardType: TextInputType.number,
@@ -96,7 +96,7 @@ class _OtpFormState extends State<OtpForm> {
                 ),
               ),
               SizedBox(
-                width: getProportionateScreenWidth(60),
+                width: getRatioScreenWidth(60),
                 child: TextFormField(
                   focusNode: pin4FocusNode,
                   keyboardType: TextInputType.number,

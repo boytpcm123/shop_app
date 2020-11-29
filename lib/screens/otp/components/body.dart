@@ -11,7 +11,7 @@ class Body extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: getProportionateScreenWidth(20),
+          horizontal: getRatioScreenWidth(20),
         ),
         child: SingleChildScrollView(
           child: SizedBox(

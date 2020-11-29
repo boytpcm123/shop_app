@@ -12,7 +12,7 @@ class Body extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: getProportionateScreenWidth(20),
+          horizontal: getRatioScreenWidth(20),
         ),
         child: SizedBox(
           width: double.infinity,
@@ -48,7 +48,7 @@ class Body extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: getProportionateScreenHeight(20)), //8%
+                SizedBox(height: getRatioScreenHeight(20)), //8%
                 const Text(
                   """By continuing your confirm that you agree \nwith our Term and Condition""",
                   textAlign: TextAlign.center,

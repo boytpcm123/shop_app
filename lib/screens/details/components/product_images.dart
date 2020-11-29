@@ -24,8 +24,8 @@ class _ProductImagesState extends State<ProductImages> {
     return Column(
       children: [
         SizedBox(
-          width: getProportionateScreenWidth(238),
-          height: getProportionateScreenHeight(238),
+          width: getRatioScreenWidth(238),
+          height: getRatioScreenHeight(238),
           child: AspectRatio(
             aspectRatio: 1,
             child: Image.asset(widget.product.images[selectedImage]),
@@ -52,11 +52,10 @@ class _ProductImagesState extends State<ProductImages> {
         });
       },
       child: Container(
-        margin:
-            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(7.5)),
-        padding: EdgeInsets.all(getProportionateScreenHeight(8)),
-        height: getProportionateScreenWidth(48),
-        width: getProportionateScreenWidth(48),
+        margin: EdgeInsets.symmetric(horizontal: getRatioScreenWidth(7.5)),
+        padding: EdgeInsets.all(getRatioScreenHeight(8)),
+        height: getRatioScreenWidth(48),
+        width: getRatioScreenWidth(48),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),

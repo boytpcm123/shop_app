@@ -22,7 +22,7 @@ class ProductionDescription extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20),
+            horizontal: getRatioScreenWidth(20),
           ),
           child: Text(
             product.title,
@@ -33,8 +33,8 @@ class ProductionDescription extends StatelessWidget {
         Align(
           alignment: Alignment.centerRight,
           child: Container(
-            padding: EdgeInsets.all(getProportionateScreenWidth(15)),
-            width: getProportionateScreenWidth(64),
+            padding: EdgeInsets.all(getRatioScreenWidth(15)),
+            width: getRatioScreenWidth(64),
             decoration: BoxDecoration(
               color: product.isFavourite
                   ? const Color(0xFFFFE6E6)
@@ -54,8 +54,8 @@ class ProductionDescription extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(
-            left: getProportionateScreenWidth(20),
-            right: getProportionateScreenWidth(64),
+            left: getRatioScreenWidth(20),
+            right: getRatioScreenWidth(64),
           ),
           child: Text(
             product.description,
@@ -64,7 +64,7 @@ class ProductionDescription extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20),
+            horizontal: getRatioScreenWidth(20),
             vertical: 10,
           ),
           child: GestureDetector(

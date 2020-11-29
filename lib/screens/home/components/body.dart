@@ -16,15 +16,15 @@ class Body extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: getProportionateScreenHeight(20)),
+            SizedBox(height: getRatioScreenHeight(20)),
             const HomeHeader(),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getRatioScreenHeight(30)),
             const DiscountBanner(),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getRatioScreenHeight(30)),
             const Categories(),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getRatioScreenHeight(30)),
             const SpecialOffers(),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getRatioScreenHeight(30)),
             const PopularProducts()
           ],
         ),

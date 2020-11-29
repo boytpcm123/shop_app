@@ -12,8 +12,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+        padding: EdgeInsets.symmetric(horizontal: getRatioScreenWidth(20)),
         child: SizedBox(
           width: double.infinity,
           child: SingleChildScrollView(
@@ -51,7 +50,7 @@ Sign in with your email and password\nor continue with social media""",
                     ),
                   ],
                 ),
-                SizedBox(height: getProportionateScreenHeight(20)),
+                SizedBox(height: getRatioScreenHeight(20)),
                 const NoAccountText()
               ],
             ),

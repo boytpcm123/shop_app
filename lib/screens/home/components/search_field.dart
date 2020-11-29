@@ -27,8 +27,8 @@ class SearchField extends StatelessWidget {
           hintText: "Search Product",
           prefixIcon: const Icon(Icons.search),
           contentPadding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20),
-            vertical: getProportionateScreenWidth(9),
+            horizontal: getRatioScreenWidth(20),
+            vertical: getRatioScreenWidth(9),
           ),
         ),
       ),

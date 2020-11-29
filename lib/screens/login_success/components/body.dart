@@ -19,7 +19,7 @@ class Body extends StatelessWidget {
         Text(
           "Login Success",
           style: TextStyle(
-            fontSize: getProportionateScreenWidth(30),
+            fontSize: getRatioScreenWidth(30),
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),

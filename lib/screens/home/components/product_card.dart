@@ -21,18 +21,18 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
+      padding: EdgeInsets.only(left: getRatioScreenWidth(20)),
       child: GestureDetector(
         onTap: press,
         child: SizedBox(
-          width: getProportionateScreenWidth(width),
+          width: getRatioScreenWidth(width),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AspectRatio(
                 aspectRatio: aspectRetion,
                 child: Container(
-                  padding: EdgeInsets.all(getProportionateScreenWidth(20)),
+                  padding: EdgeInsets.all(getRatioScreenWidth(20)),
                   decoration: BoxDecoration(
                     color: kSecondaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(15),
@@ -52,7 +52,7 @@ class ProductCard extends StatelessWidget {
                   Text(
                     "\$${product.price}",
                     style: TextStyle(
-                      fontSize: getProportionateScreenWidth(18),
+                      fontSize: getRatioScreenWidth(18),
                       fontWeight: FontWeight.w600,
                       color: kPrimaryColor,
                     ),
@@ -61,9 +61,9 @@ class ProductCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                     onTap: () {},
                     child: Container(
-                      padding: EdgeInsets.all(getProportionateScreenHeight(8)),
-                      width: getProportionateScreenWidth(28),
-                      height: getProportionateScreenWidth(28),
+                      padding: EdgeInsets.all(getRatioScreenHeight(8)),
+                      width: getRatioScreenWidth(28),
+                      height: getRatioScreenWidth(28),
                       decoration: BoxDecoration(
                         color: product.isFavourite
                             ? kPrimaryColor.withOpacity(0.15)
