@@ -16,7 +16,7 @@ class PopularProducts extends StatelessWidget {
     return Column(
       children: [
         SectionTitle(text: "Popular Product", press: () {}),
-        SizedBox(height: getProportionateScreenHeight(20)),
+        SizedBox(height: getRatioScreenHeight(20)),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -36,7 +36,7 @@ class PopularProducts extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: getProportionateScreenWidth(20),
+                width: getRatioScreenWidth(20),
               )
             ],
           ),
