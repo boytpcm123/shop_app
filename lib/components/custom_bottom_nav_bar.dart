@@ -47,7 +47,7 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
               onPressed: () {
                 if (selectedMenu != MenuState.home) {
-                  Navigator.pushNamed(context, HomeScreen.routeName);
+                  Navigator.pushReplacementNamed(context, HomeScreen.routeName);
                 }
               },
             ),
@@ -78,7 +78,8 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
               onPressed: () {
                 if (selectedMenu != MenuState.profile) {
-                  Navigator.pushNamed(context, ProfileScreen.routeName);
+                  Navigator.pushReplacementNamed(
+                      context, ProfileScreen.routeName);
                 }
               },
             )
