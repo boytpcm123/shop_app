@@ -39,34 +39,48 @@ class CustomBottomNavBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-              icon: SvgPicture.asset("assets/icons/Shop Icon.svg"),
-              color: MenuState.home == selectedMenu
-                  ? kPrimaryColor
-                  : inActiveIconColor,
-              onPressed: () =>
-                  Navigator.pushNamed(context, HomeScreen.routeName),
+              icon: SvgPicture.asset(
+                "assets/icons/Shop Icon.svg",
+                color: MenuState.home == selectedMenu
+                    ? kPrimaryColor
+                    : inActiveIconColor,
+              ),
+              onPressed: () {
+                if (selectedMenu != MenuState.home) {
+                  Navigator.pushNamed(context, HomeScreen.routeName);
+                }
+              },
             ),
             IconButton(
-              icon: SvgPicture.asset("assets/icons/Heart Icon.svg"),
-              color: MenuState.favourite == selectedMenu
-                  ? kPrimaryColor
-                  : inActiveIconColor,
+              icon: SvgPicture.asset(
+                "assets/icons/Heart Icon.svg",
+                color: MenuState.favourite == selectedMenu
+                    ? kPrimaryColor
+                    : inActiveIconColor,
+              ),
               onPressed: () {},
             ),
             IconButton(
-              icon: SvgPicture.asset("assets/icons/Chat bubble Icon.svg"),
-              color: MenuState.message == selectedMenu
-                  ? kPrimaryColor
-                  : inActiveIconColor,
+              icon: SvgPicture.asset(
+                "assets/icons/Chat bubble Icon.svg",
+                color: MenuState.message == selectedMenu
+                    ? kPrimaryColor
+                    : inActiveIconColor,
+              ),
               onPressed: () {},
             ),
             IconButton(
-              icon: SvgPicture.asset("assets/icons/User Icon.svg"),
-              color: MenuState.profile == selectedMenu
-                  ? kPrimaryColor
-                  : inActiveIconColor,
-              onPressed: () =>
-                  Navigator.pushNamed(context, ProfileScreen.routeName),
+              icon: SvgPicture.asset(
+                "assets/icons/User Icon.svg",
+                color: MenuState.profile == selectedMenu
+                    ? kPrimaryColor
+                    : inActiveIconColor,
+              ),
+              onPressed: () {
+                if (selectedMenu != MenuState.profile) {
+                  Navigator.pushNamed(context, ProfileScreen.routeName);
+                }
+              },
             )
           ],
         ),
