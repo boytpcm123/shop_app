@@ -33,11 +33,10 @@ In the first part of our complete e-commerce app, we show you how you can create
 
 => Order
 
-=> Profile (added)
+=> Profile
 
-=> Bottom Navigation Bar (added)
+=> Bottom Navigation Bar 
 
-Now it contains all the screen, thanks for your love and support 🙏 
 
 ## Photos
 ![Preview](/1.png)

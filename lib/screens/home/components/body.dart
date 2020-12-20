@@ -25,7 +25,8 @@ class Body extends StatelessWidget {
             SizedBox(height: getRatioScreenHeight(30)),
             const SpecialOffers(),
             SizedBox(height: getRatioScreenHeight(30)),
-            const PopularProducts()
+            const PopularProducts(),
+            SizedBox(height: getRatioScreenHeight(30)),
           ],
         ),
       ),
