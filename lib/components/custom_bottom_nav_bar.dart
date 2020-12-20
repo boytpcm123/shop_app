@@ -47,7 +47,18 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
               onPressed: () {
                 if (selectedMenu != MenuState.home) {
-                  Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+                  // Navigator.pushReplacementNamed(
+                  //   context,
+                  //   HomeScreen.routeName,
+                  // );
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation1, animation2) =>
+                          const HomeScreen(),
+                      transitionDuration: const Duration(seconds: 0),
+                    ),
+                  );
                 }
               },
             ),
@@ -78,8 +89,18 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
               onPressed: () {
                 if (selectedMenu != MenuState.profile) {
-                  Navigator.pushReplacementNamed(
-                      context, ProfileScreen.routeName);
+                  // Navigator.pushReplacementNamed(
+                  //   context,
+                  //   ProfileScreen.routeName,
+                  // );
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation1, animation2) =>
+                          const ProfileScreen(),
+                      transitionDuration: const Duration(seconds: 0),
+                    ),
+                  );
                 }
               },
             )
